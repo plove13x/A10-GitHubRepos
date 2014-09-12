@@ -3,6 +3,10 @@
     padding: 0;
 }
 
+a {
+	color: blue;		/*FOR PRODUCTION ONLY*/
+}
+
 ul {
     list-style: none;
 }
@@ -18,7 +22,19 @@ ul {
 	height: 230px;
 }
 
-.orgs img {
+li {
+    color: green;
+}
+
+.follow a {
+	display: inline-block;
+}
+
+span {
+	display: block;
+}
+
+img.orgs {
 	width: 42px;
 	height: 42px;
 }
@@ -28,6 +44,6 @@ ul {
     max-width: 800px;
 }
 
-li {
-    color: blue;
+.repo-list-stats {
+	float: right;
 }
