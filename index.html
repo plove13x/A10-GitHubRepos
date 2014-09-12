@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>GitHub Repos</title>
+  <link href="dist/styles/main.css" rel="stylesheet" type="text/css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/octicons/2.0.2/octicons.min.css" rel="stylesheet" type="text/css">
+
+</head>
+<body>
+<header>
+Search GitHub
+</header>
+
+<section class="sidebar">
+<!--
+<div class="user">
+<img src="http://placekitten.com/202/303" />
+<h1>Example Name</h1>
+<h3>username</h3>
+</div>
+<ul class="organizations">
+<li>Works for:</li>
+<li>Location</li>
+<li>Email</li>
+<li>io</li>
+<li>Joined on</li>
+</ul>
+<div class="follow">
+17, 6, 3
+</div>
+<div class="orgs">
+<h4>Organizations</h4>
+<img src="http://placekitten.com/140/210" />
+</div>
+-->
+</section>
+
+<div class="mainWidth">
+<nav>
+Contributions
+</nav>
+<div class="search">
+Find a repository...
+</div>
+<section>
+<ul class="repos">
+<li>
+<a class="name" href="http://www.espn.com">Example Repo</a>
+<div class="ifForked">forked from simplabs/ember</div>
+<div class="commitMsg">Added some stuff.</div>
+<div class="whenUpdated">Updated x days ago</div>
+</li>
+</ul>
+</section>
+</div>				<!-- *END div mainWidth*/ -->
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>  
+<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.2/moment.js"></script>
+<script type="text/javascript" src="http://underscorejs.org/underscore-min.js"></script>
+<script src="token.js"></script>
+
+<!--ploveRepos.forEach(function(inputHere) {             
+    var $li = $('<li class="repo">');
+    $('ul').append($li)
+    $li.append('<a class="name" href="' + inputHere.html_url + '">' + inputHere.name + '</a>');
+    $li.append('<div class="fork">' + inputHere.fork + '</div>');
+    //$li.append('<div class="comment">' + inputHere.comment + '</div>');               
+    $li.append('<div class="updated_at">' + inputHere.updated_at + '</div>');            
+});
+-->
+
+<!-- <div class="comment"><%= comment %></div>; -->  
+
+
+<script type="text/template" id="sidebarTemplateScript">
+  <div class="user">
+  <img src="<%= avatar_url %>" />
+  <h1><%= name %></h1>
+  <h3><%= login %></h3>
+  </div>
+  <ul class="profile">
+
+<% if (company) { %>
+<li><span class="octicon octicon-organization"></span><%= company %></li>
+<% } %>
+
+<% if (location) { %>
+<li><span class="octicon octicon-location"></span><%= location %></li>
+<% } %>
+
+<% if (email) { %>
+<li><span class="octicon octicon-mail"></span><%= email %></li>
+<% } %>
+
+<% if (blog) { %>
+<li><span class="octicon octicon-link"></span><%= blog %></li>
+<% } %>
+  
+<% if (created_at) { %>
+<li><span class="octicon octicon-clock"></span><%= created_at %></li>
+<% } %>
+
+  </ul>
+  <div class="follow">
+  <%= followers %>, <%= following %>
+  </div>
+  <div class="orgs">
+  <h4>Organizations</h4>
+  <img src="<%= avatar_url %>" />
+  </div>
+</script>
+
+
+<script type="text/template" id="reposTemplateScript">
+	<li>
+	<a class="name" href="<%= html_url %>"><%= name %></a>
+	<div class="fork"><%= fork %></div>             
+  <div class="updated_at"><%= updated_at %></div>
+  </li> 
+</script>
+
+<script src="main.js"></script>
+
+</body>
+</html>

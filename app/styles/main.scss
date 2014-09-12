@@ -1,0 +1,33 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+ul {
+    list-style: none;
+}
+
+.sidebar {
+    display: inline-block;
+    max-width: 500px;
+    vertical-align: top;
+}
+
+.user img:first-child {
+	width: 230px;
+	height: 230px;
+}
+
+.orgs img {
+	width: 42px;
+	height: 42px;
+}
+
+.mainWidth {
+    display: inline-block;
+    max-width: 800px;
+}
+
+li {
+    color: blue;
+}
