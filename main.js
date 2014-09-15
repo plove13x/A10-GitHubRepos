@@ -5,7 +5,7 @@ function renderTemplate(templateId, container, finalArgument) {
     $(container).append(renderedTemplate);
 };
 
-$.getJSON("https://api.github.com/users/jacobthemyth").done(function(item) {
+$.getJSON("https://api.github.com/users/plove13x").done(function(item) {
     var userInfo = {
             "avatar_url": item.avatar_url,
             "name": item.name,
@@ -18,11 +18,12 @@ $.getJSON("https://api.github.com/users/jacobthemyth").done(function(item) {
             "followers": item.followers,
             "following": item.following
     };
+    renderTemplate('headerTemplateScript', '.nB', userInfo);
     renderTemplate('sidebarTemplateScript', '.sidebar', userInfo); 
 
-        $.getJSON("https://api.github.com/users/jacobthemyth/starred").done(function(data) {
+        $.getJSON("https://api.github.com/users/plove13x/starred").done(function(data) {
             userInfo.starred = data.length;
-            renderTemplate('followTemplateScript', '.follow', userInfo);
+            renderTemplate('followTemplateScript', '.belowProfile', userInfo);
         
 
             $.getJSON("https://api.github.com/users/jgoley/orgs").done(function(data) {
@@ -38,7 +39,7 @@ $.getJSON("https://api.github.com/users/jacobthemyth").done(function(item) {
         });
 });
 
-$.getJSON("https://api.github.com/users/jacobthemyth/repos").done(function(data) {
+$.getJSON("https://api.github.com/users/plove13x/repos").done(function(data) {
     var ploveRepos = data.map(function(item) {
         return {
             "language": item.language,

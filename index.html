@@ -8,77 +8,197 @@
 
 </head>
 <body>
-  <header>
-    Search GitHub
-  </header>
+<header>
+  <div class="headerContent">
+  <span class="mega-octicon octicon-mark-github"></span><input type="text" placeholder="Search GitHub" name="search">
+  <ul>
+    <li>
+      <a class="moGHstuff" href="">Explore</a>
+    </li>
+    <li>
+      <a class="moGHstuff" href="">Gist</a>
+    </li>
+    <li>
+      <a class="moGHstuff" href="">Blog</a>
+    </li>
+    <li>
+      <a class="moGHstuff" href="">Help</a>
+    </li>
+  </ul>
+  <nav>
 
-  <section class="sidebar">
-  </section>
 
-  <div class="mainWidth">
-    <nav>
-      Contributions
-    </nav>
-  <div class="search">
-    Find a repository...
+<!-- add padding-top? -->
+  <a class="userOptions" href=""><div class="nB"></div></a>
+  <a class="userOptions" href=""><span class="octicon octicon-plus"></span><span class="octicon octicon-triangle-down"></span></a>
+  <a class="userOptions" href=""><span class="octicon octicon-inbox"></span></a>
+  <a class="userOptions" href=""><span class="octicon octicon-gear"></span></a>
+  <a class="userOptions" href=""><span class="octicon octicon-sign-out"></span></a>
+
+  </nav>
   </div>
-  <section>
-    <ul class="repos">
-<!--      <li>
-<a class="name" href="http://www.espn.com">Example Repo</a>
-<div class="ifForked">forked from simplabs/ember</div>
-<div class="commitMsg">Added some stuff.</div>
-<div class="whenUpdated">Updated x days ago</div>
-</li>
--->
-</ul>
+</header>
+<div class="container">
+<section class="sidebar">
 </section>
-</div>				<!-- *END div mainWidth*/ -->
 
+<div class="primaryContent">
+  <div class="firstLineInPrimaryC">
+  <ul class="activity"><!--               ADD CLASS HIDDEN (jQuery?) HERE FOR BORDERS
+    --><li><a class href=""><span class="octicon octicon-diff-added"></span>Contributions</a></li><!--
+    --><li><a class href=""><span class="octicon octicon-repo"></span>Repositories</a></li><!--
+    --><li><a class href=""><span class="octicon octicon-rss"></span>Public Activity</a></li>
+  </ul>
+  <ul class="personSettings">
+  <li>
+  <span class="octicon octicon-person"></span>Follow
+  </li>
+  <li>
+  <span class="octicon octicon-gear"></span><span class="octicon octicon-triangle-down"></span>
+  </li>
+  </ul>
+  </div>
+
+<section>
+  <div class="search">
+  <input type="text" placeholder="Find a repository..." name="findARepo">
+  <div class="searchButton">
+  Search
+  </div>
+  <ul>
+  <li>
+  All
+  </li>
+  <li>
+  Sources
+  </li>
+  <li>
+  Forks
+  </li>
+  <li>
+  Mirrors
+  </li>
+  </ul>
+  </div>
+  <ul class="repos">
+  </ul>
+</section>
+</div>				<!-- *END div primaryContent*/ -->
+</div>        <!-- *END div container*/ -->
+<footer>
+© 2014 GitHub, Inc.
+<ul>
+<li>
+<a href="">
+Terms
+</a>
+</li>
+<li>
+<a href="">
+Privacy
+</a>
+</li>
+<li>
+<a href="">
+Security
+</a>
+</li>
+<li>
+<a href="">
+Contact
+</a>
+</li>
+</ul>
+<span id="footerCenter" class="octicon octicon-mark-github"></span>
+<ul class="bRightLinks">
+<li>
+<a href="">
+Status
+</a>
+</li>
+<li>
+<a href="">
+API
+</a>
+</li>
+<li>
+<a href="">
+Training
+</a>
+</li>
+<li>
+<a href="">
+Shop
+</a>
+</li>
+<li>
+<a href="">
+Blog
+</a>
+</li>
+<li>
+<a href="">
+About
+</a>
+</li>
+</ul>
+</footer>
 <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>  
 <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.2/moment.js"></script>
 <script type="text/javascript" src="http://underscorejs.org/underscore-min.js"></script>
 <script src="token.js"></script>
+
+
+
+<script type="text/template" id="headerTemplateScript">
+  
+<img src="<%= avatar_url %>" /> <%= login %>
+
+</script>
+
+
 
 <script type="text/template" id="sidebarTemplateScript">
 
 <div class="user">
 <img src="<%= avatar_url %>" />
 <h1>
-<span><%= name %></span>
-<span><%= login %></span>
+<span class="fullName"><%= name %></span>
+<span class="userName"><%= login %></span>
 </h1>
 </div>
 <ul class="profile">
 
 <% if (company) { %>
-<li><span class="octicon octicon-organization"></span><%= company %></li>
+<li><span class="octicon octicon-organization"></span><div><%= company %></div></li>
 <% } %>
 
 <% if (location) { %>
-<li><span class="octicon octicon-location"></span><%= location %></li>
+<li><span class="octicon octicon-location"></span><div><%= location %></div></li>
 <% } %>
 
 <% if (email) { %>
-<li><span class="octicon octicon-mail"></span><%= email %></li>
+<li><span class="octicon octicon-mail"></span><div><a href="<%= email %>"><%= email %></a></div></li>
 <% } %>
 
 <% if (blog) { %>
-<li><span class="octicon octicon-link"></span><%= blog %></li>
+<li><span class="octicon octicon-link"></span><div><a href="<%= blog %>"><%= blog %></a></div></li>
 <% } %>
   
 <% if (created_at) { %>
-<li><span class="octicon octicon-clock"></span><%= created_at %></li>
+<li><span class="octicon octicon-clock"></span><div><%= created_at %></div></li>
 <% } %>
 
 </ul>
 
-<div class="follow">
+<div class="belowProfile"
 </div>
 
 </script>
 
 <script type="text/template" id="followTemplateScript">
+
+<div class="follow">
 
 <a href="">
 <strong>
@@ -107,8 +227,10 @@ Following
 </span>
 </a>
 
-<h3>Organizations</h3>
+</div>
+
 <div class="orgz">
+<h3>Organizations</h3>
 </div>
 
 </script>
@@ -123,8 +245,8 @@ Following
 	
 <li>
 <div class="repo-list-stats"><%= language %> <span class="octicon octicon-star"></span> <%= stargazers_count %> <span class="octicon octicon-git-branch"></span>Forks</div>
-<a class="name" href="<%= html_url %>"><%= name %></a>
 
+<h3 class="repoName"><a href="<%= html_url %>"><%= name %></a></h3>
 
 <% if (fork) { %>
 <div class="fork">
@@ -133,17 +255,14 @@ Following
 </div> 
 <% } %>
 
-
 <div class="description"><%= description %></div>            
 <div class="updated_at">Updated <%= updated_at %></div>
+
 <!-- <div class="participation-graph">GRAPH</div> -->
+
 </li> 
 
 </script>
-
-<footer>
-C 2014 GitHub, Inc.
-</footer>
 
 
 <script src="main.js"></script>

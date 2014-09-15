@@ -1,37 +1,191 @@
+$oil: RGBA(51, 51, 51, 1);			/*name, organizations, profile text DONE top right nav*/
+$steel: RGBA(102, 102, 102, 1);		/*user name, repo descriptions DONE contributions/public unselected*/
+$darkGray: RGBA(169, 169, 169, 1);	/*search placeholder*/
+$jumbo: RGBA(136, 136, 136, 1);		/*repo updated, repo float DONE forked from */
+$tuftsBlue: RGBA(65, 131, 196, 1);	/*profile links DONE footer links*/
+$iron: RGBA(204, 204, 204, 1);		/*profile icons DONE footer Octicon*/
+$aluminum: RGBA(153, 153, 153, 1);  /*follower, starred, following DONE*/
+$monsoon: RGBA(119, 119, 119, 1);	/*footer copyright*/
+$whiteSmoke: RGBA(245, 245, 245, 1);
+$platinum: RGBA(229, 229, 229, 1);	/*header bottom border DONE*/
+$white2: RGBA(238, 238, 238, 1);	/*repo bottom border DONE*/
+$gainsboro: RGBA(221, 221, 221, 1);
+$apple: RGBA(92, 169, 65, 1);
+
+
+$primaryColor: $oil;		/*Don't think I'll use this convention on this project but just for kicks...*/
+$secondaryColor: $steel;
+
 * {
     margin: 0;
     padding: 0;
+    font-family: sans-serif;
 }
 
-a {
-	color: blue;		/*FOR PRODUCTION ONLY*/
-}
 
 ul {
     list-style: none;
 }
 
+header {
+
+	margin: 0 auto;
+	padding: 10px 0 10px;
+	border-bottom: 1px solid $platinum; 	
+	min-width: 1000px;
+	height: 28px;
+	background-color: $whiteSmoke;
+
+		.headerContent {
+			max-width: 980px;
+			margin: 0 auto;
+		}
+
+		.headerContent a {
+			color: $oil;
+			font-weight: 700;
+			text-decoration: none;
+
+			padding: 4px 8px;
+			font-size: 13px;
+			line-height: 20px;
+
+		}
+
+		span {
+			vertical-align: middle;
+		}
+
+		input {
+			vertical-align: middle;		
+			width: 360px;
+			height: 28px;
+			margin-right: 10px;
+		}
+
+		ul {
+			display: inline-block;
+		}
+
+		li {
+			display: inline;
+		}
+
+		nav {
+			vertical-align: middle;
+			float: right;				/* probably absolute position? */
+		}
+
+		.nB {
+			display: inline-block;
+		}
+
+		.nB img {
+			height: 22px;
+			width: 22px;
+		}
+}
+
+.container {
+	margin: 0 auto;
+	margin-top: 21px;
+	max-width: 1000px;
+}
+
 .sidebar {
     display: inline-block;
-    max-width: 500px;
+    max-width: 232px;
     vertical-align: top;
+    margin-right: 24px;
 }
 
 .user img:first-child {
 	width: 230px;
 	height: 230px;
+	border-radius: 6px;
 }
 
-li {
-    color: green;
+h1 {
+	margin-bottom: 15px;		/*This is where Sass starts to trouble me. Should I nest the two selectors below inside the h1. But then again, why not nest this h1 inside .sidebar? */
+}
+
+.fullName {
+	color: $oil;
+	font-size: 26px;
+	line-height: 30px;
+}
+
+.userName {
+	color: $steel;
+	font-weight: 300;
+	font-size: 20px;
+	line-height: 24px;
+}
+
+.profile {
+
+	color: $oil;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	line-height: 1.65;
+	border-top: 1px solid $white2;
+	font-size: 14px;
+
+		a {
+			color: $tuftsBlue;
+			text-decoration: none;
+		}
+
+		span {
+			color: $iron;
+			text-align: center;
+			width: 16px;
+		}
+
+		div {
+			display: inline;
+			padding: .83em 0 .83em 1em;
+		}
+}
+
+.follow {
+	margin-bottom: 10px;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	border-top: 1px solid $white2;
+	border-bottom: 1px solid $white2;
 }
 
 .follow a {
+	
 	display: inline-block;
+	text-align: center;
+	text-decoration: none;
+	width: 31.83333%;		/* obviously should be 33.33333% but I need help getting border-box to work */
+
+		strong {
+			color: $tuftsBlue;
+			font-size: 28px;
+			font-weight: bold;
+			line-height: 1;
+		}
+
+		span {
+			color: $aluminum;
+			font-size: 11px;
+		}
 }
 
 span {
 	display: block;
+}
+
+.orgz h3 {
+	color: $oil;
+	font-size: 16px;
+	margin-top: 15px;
+	margin-bottom: 15px;
+	line-height: 1.1;
 }
 
 img.orgs {
@@ -39,11 +193,209 @@ img.orgs {
 	height: 42px;
 }
 
-.mainWidth {
+.primaryContent {
     display: inline-block;
-    max-width: 800px;
+    max-width: 732px;
+    width: 100%;
+}
+
+.firstLineInPrimaryC {
+	margin-bottom: 15px;
+	border-bottom: 1px solid $gainsboro;		/*move to .activity a below for onSelected changes? */
+}
+
+.activity {
+
+	display: inline-block;
+	margin: 0 0 15px;
+
+		li {
+			display: inline;
+			margin-bottom: -1px;
+		}
+
+		a {
+			color: $steel;
+			text-decoration: none;
+			/* display: inline-block;		Was in GH's code... */
+			padding: 8px 12px 7px;
+			font-size: 14px;
+			line-height: 20px;
+			border: 1px solid transparent;
+			border-bottom: 0;
+		}
+}
+
+.personSettings {
+
+	display: inline-block;
+	float: right;	
+
+		li {
+			display: inline-block;
+			border-radius: 3px;
+		}
+
+		li:first-child {
+			color: white;
+			padding: 0 10px;
+			line-height: 24px;
+			text-shadow: 0 -1px 0 rgba(0,0,0,0.25);
+			background-color: #60b044;
+			background-image: -moz-linear-gradient(#8add6d, #60b044);
+			background-image: -webkit-linear-gradient(#8add6d, #60b044);
+			background-image: linear-gradient(#8add6d, #60b044);
+			background-repeat: repeat-x;
+			border: 1px solid $apple;
+
+			/* background: linear-gradient(rgb(138, 221, 109), rgb(96, 176, 68));		actually a gradient */
+		}
+
+		li:last-child {
+			padding: 0 10px;
+			line-height: 24px;
+			text-shadow: 0 1px 0 rgba(255,255,255,0.9);
+			background-color: #eee;
+			background-image: -moz-linear-gradient(#fcfcfc, #eee);
+			background-image: -webkit-linear-gradient(#fcfcfc, #eee);
+			background-image: linear-gradient(#fcfcfc, #eee);
+			background-repeat: repeat-x;
+			border: 1px solid #d5d5d5;
+		}
+
+}
+
+.search {
+
+	border-bottom: 1px solid $gainsboro;		/* vs repo li last no border? */
+	padding: 0 0 10px;
+
+		input {
+			width: 242px;
+			padding: 7px 8px;
+			border: 1px solid $iron;
+			border-radius: 3px;
+			box-shadow: inset 0 1px 2px rgba(0,0,0,0.075);
+			font-size: 13px;
+		}
+
+		div { 
+			display: inline-block;
+			background-color: $whiteSmoke;
+		}
+
+		ul {
+			display: inline-block;
+			float: right;
+			margin-top: 8px;
+		}	
+
+		ul li {
+			display: inline;
+		}
+}
+
+.searchButton {
+			padding: 4px 12px;
+			line-height: 24px;
+			text-shadow: 0 1px 0 rgba(255,255,255,0.9);
+			background-color: #eee;
+			background-image: -moz-linear-gradient(#fcfcfc, #eee);
+			background-image: -webkit-linear-gradient(#fcfcfc, #eee);
+			background-image: linear-gradient(#fcfcfc, #eee);
+			background-repeat: repeat-x;
+			border: 1px solid #d5d5d5;
+			border-radius: 3px;
+			font-size: 13px;
+			font-weight: bold;
+			color: $oil;
+}
+
+.repos li {
+	padding: 30px 0;
+	border-bottom: 1px solid $white2;
 }
 
 .repo-list-stats {
 	float: right;
+	color: $jumbo;
 }
+
+.repoName {
+
+	margin: 0 0 8px;
+	font-size: 20px;
+	line-height: 1.2;
+	
+		a {
+			text-decoration: none;
+			color: $tuftsBlue;
+		}
+}
+
+.fork {
+	/*display: inline-block;		On GitHub code but don't need it?
+	height: 100%;*/
+	margin: 0;
+	font-size: 12px;
+	color: $jumbo;
+	vertical-align: middle;
+}
+
+.description {
+	max-width: 550px;
+	margin: 8px 0 0;
+	font-size: 14px;
+	color: $steel;
+}
+
+
+.updated_at {
+	/*display: block;		On GitHub code but don't need it? */
+	margin-top: 8px;
+	margin-bottom: 0;
+	font-size: 13px;
+	color: $jumbo;
+}
+
+footer {
+
+	/*position: relative;	On GitHub code but don't need it? */
+	max-width: 980px;
+	position: relative;
+	margin: 0 auto;
+	margin-top: 40px;
+	padding-top: 40px;
+	padding-bottom: 40px;
+	font-size: 12px;
+	line-height: 1.5;
+	border-top: 1px solid $white2;
+	color: $monsoon;
+
+		ul {
+			display: inline-block;
+		}
+
+		li {
+			display: inline;
+		}
+
+		li a {
+			color: $tuftsBlue;
+			text-decoration: none;
+		}
+
+		span {
+			text-align: center;
+		}
+
+		#footerCenter {
+			position: absolute;
+			left: 50%;
+		}
+}
+
+.bRightLinks {
+	float: right;
+}
+
